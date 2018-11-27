@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> My Dashboard </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travelix Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/assets/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/styles/responsive.css">
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+            -->
+            <div class="logo">
+
+                <a class="simple-text logo-normal">
+                    TravOre
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="active ">
+                        <a href="dashboard.html">
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="map.html">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>Maps</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./feedback.html">
+                            <i class="now-ui-icons ui-1_bell-53"></i>
+                            <p>Feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./user.html">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./favourites.html">
+                            <i class="now-ui-icons design_bullet-list-67"></i>
+                            <p>Favourites</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./about.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <p>Log Out</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent  bg-primary  navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="#pablo">TravOre</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+
+        <div class="main-panel">
+
+
+        </div>
+
+    </div>
+
+
+    <div class="search">
+
+
+        <!-- Search Contents -->
+
+        <div class="container fill_height">
+            <div class="row fill_height">
+                <div class="col fill_height">
+
+
+                    <!-- Search Panel -->
+
+                    <div class="search_panel active">
+                        <form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                            <div class="search_item">
+                                <div>destination</div>
+                                <input type="text" class="destination search_input" required="required">
+                            </div>
+                            <div class="search_item">
+                                <div>check in</div>
+                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
+                            </div>
+                            <div class="search_item">
+                                <div>check out</div>
+                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
+                            </div>
+                            <div class="search_item">
+                                <div>adults</div>
+                                <select name="adults" id="adults_1" class="dropdown_item_select search_input">
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                </select>
+                            </div>
+                            <div class="search_item">
+                                <div>children</div>
+                                <select name="children" id="children_1" class="dropdown_item_select search_input">
+                                    <option>0</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                </select>
+                            </div>
+                            <button class="button search_button">search<span></span><span></span><span></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="search">
+        <div class="container fill_height">
+            <div class="row fill_height">
+                <div class="col fill_height">
+
+                    <!-- Search Panel -->
+
+                    <div class="search_panel active">
+                        <form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+
+
+
+                            <div class="search_item">
+                                <div>Price</div>
+                                <select name="adults" id="adults_1" class="dropdown_item_select search_input">
+                                    <option>Rs 4000 - 6000</option>
+                                    <option>Rs 6001 - 8000</option>
+                                    <option>Rs 8001 - 10000</option>
+                                    <option>Rs 10001 - 12000</option>
+                                    <option>Rs 12001 - 15000</option>
+                                    <option>Rs 15001 - 20000</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="search_item">
+                                <div>Ratings</div>
+                                <select name="adults" id="adults_1" class="dropdown_item_select search_input">
+                                    <option>1 Star</option>
+                                    <option>2 Star</option>
+                                    <option>3 Star</option>
+                                    <option>4 Star</option>
+                                    <option>5 Star</option>
+                                </select>
+                            </div>
+                            <div class="search_item">
+                                <div>Facilities</div>
+                                <select name="children" id="children_1" class="dropdown_item_select search_input">
+                                    <option>Free Wifi</option>
+                                    <option>Swimming Pool</option>
+                                    <option>Car Park</option>
+                                    <option>Free Breakfast</option>
+                                    <option>Private Parking</option>
+                                    <option>Play Land</option>
+                                </select>
+                            </div>
+                            <button class="button search_button">filter<span></span><span></span><span></span></button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Box -->
+
+    <div class="main-panel">
+        <div class="space">
+            <p>                                                  </p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="color:#ff6600 "><h2><b><font face="Comic Sans MS">Pearl continental</font></b></h2></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Category:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Reviews:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Address:</font></h4></label><br>
+
+                                            <button class="button search_button1"><a href="http://www.pchotels.com/pclahore/">View Deal</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="color:#ff6600 "><h2><b><font face="Comic Sans MS">Avari Hotel</font></b></h2></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Category:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Reviews:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Address:</font></h4></label><br>
+
+
+
+                                            <button class="button search_button1"><a href="http://www.pchotels.com/pclahore/">View Deal</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="color:#ff6600 "><h2><b><font face="Comic Sans MS">Flatties Hotel</font></b></h2></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Category:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Reviews:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Address:</font></h4></label><br>
+
+
+
+                                            <button class="button search_button1"><a href="http://www.pchotels.com/pclahore/">View Deal</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="color:#ff6600 "><h2><b><font face="Comic Sans MS">HolidayInn Hotel</font></b></h2></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Category:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Reviews:</font></h4></label><br>
+                                            <label style="color:#ff6600"><h4><font face="Bookman">Address:</font></h4></label><br>
+
+
+
+                                            <button class="button search_button1"><a href="http://www.pchotels.com/pclahore/">View Deal</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="js/custom.js"></script>
+
+
+
+    <script src="~/assets/js/core/jquery.min.js"></script>
+    <script src="~/assets/js/core/popper.min.js"></script>
+    <script src="~/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="~/assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
+    <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/assets/demo/demo.js"></script>
+    <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+    </script>
+</body>
+
+</html>

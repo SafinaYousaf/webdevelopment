@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="General">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HotelData">
+    <Key>
+      <PropertyRef Name="HotelID" />
+    </Key>
+    <Property Name="HotelID" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="HotelName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ratings" Type="real" />
+    <Property Name="Category" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Facilities" Type="nchar" MaxLength="1000" />
+    <Property Name="PriceRangeUpper" Type="real" Nullable="false" />
+    <Property Name="PriceRangeLower" Type="real" Nullable="false" />
+    <Property Name="RoomAvailable" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HotelModelStoreContainer">
+    <EntitySet Name="General" EntityType="Self.General" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HotelData" EntityType="Self.HotelData" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
