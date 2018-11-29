@@ -4,9 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Hotel;
+using Hotel.Models;
 
 namespace Hotel.Controllers
 {
@@ -144,7 +147,118 @@ namespace Hotel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        /*Login code goes here*/
+        //LOGIN//
+        [HttpGet]
+        public ActionResult Login(string returnURL)
+        {
+            var userinfo = new LoginVM();
 
+            try
+            {
+                // We do not want to use any existing identity information
+                EnsureLoggedOut();
+
+                // Store the originating URL so we can attach it to a form field
+                userinfo.ReturnURL = returnURL;
+
+                return View(userinfo);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginVM entity)
+        {
+            using (db = new HotelEntities1())
+            {
+
+                General general = db.Generals.Find(entity.Email);
+                if(general == null)
+                {
+                    TempData["ErrorMSG"] = "object not found";
+                }
+                if (entity.Password != general.Password)
+                {
+                    TempData["ErrorMSG"] = "password not matched";
+                }
+                if (general != null && entity.Password == general.Password)
+                {
+                    if (general.Type == "Admin")
+                    {
+                        return RedirectToAction("AdminDash");
+                    }
+                    else
+                    {
+                        TempData["ErrorMSG"] = "Access Denied! Wrong Credential";
+                        return View(entity);
+                    }
+                }
+                else
+                {
+                    TempData["ErrorMSG"] = "Access Denied! Wrong Credential";
+                    return View(entity);
+
+                }
+
+            }
+        }
+        //GET: EnsureLoggedOut
+        private void EnsureLoggedOut()
+        {
+            // If the request is (still) marked as authenticated we send the user to the logout action
+            if (Request.IsAuthenticated)
+                Logout();
+        }
+
+        //POST: Logout
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            try
+            {
+                // First we clean the authentication ticket like always
+                //required NameSpace: using System.Web.Security;
+                FormsAuthentication.SignOut();
+
+                // Second we clear the principal to ensure the user does not retain any authentication
+                //required NameSpace: using System.Security.Principal;
+                HttpContext.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
+
+                Session.Clear();
+                System.Web.HttpContext.Current.Session.RemoveAll();
+
+                // Last we redirect to a controller/action that requires authentication to ensure a redirect takes place
+                // this clears the Request.IsAuthenticated flag since this triggers a new request
+                return RedirectToLocal();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        //GET: RedirectToLocal
+        private ActionResult RedirectToLocal(string returnURL = "")
+        {
+            try
+            {
+                // If the return url starts with a slash "/" we assume it belongs to our site
+                // so we will redirect to this "action"
+                if (!string.IsNullOrWhiteSpace(returnURL) && Url.IsLocalUrl(returnURL))
+                    return Redirect(returnURL);
+
+                // If we cannot verify if the url is local to our host we redirect to a default location
+                return RedirectToAction("Index", "Dashboard");
+            }
+            catch
+            {
+                throw;
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
