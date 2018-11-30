@@ -104,7 +104,7 @@
                                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "input100" })
 
 
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100" } })
+                                @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "input100" }, style = "background-color: #99b9ff; color: white" })
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
                                 @Html.ValidationMessageFor(model => model.Password)
                             </div>
@@ -117,7 +117,7 @@
                                 @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "input100" })
 
 
-                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input100" } })
+                                @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input100" }, style = "background-color: #99b9ff; color: white" })
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
                                 @Html.ValidationMessageFor(model => model.ConfirmPassword)
                             </div>

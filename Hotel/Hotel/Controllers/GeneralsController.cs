@@ -339,9 +339,16 @@ namespace Hotel.Controllers
 
                 if (user != null)
                 {
-                    if (user.Password.ToString() != entity.Password.ToString())
+                    if (user.Password.ToString() == entity.Password.ToString())
                     {
-                        return RedirectToAction("AdminDash");
+                        
+                        
+                        if (user.Type.Substring(0, 5) == "Admin")
+                            return RedirectToAction("AdminDash");
+                        if (user.Type.Substring(0, 12) == "HotelManager")
+                            return RedirectToAction("HotelDash");
+                        if (user.Type.Substring(0, 4) == "User")
+                            return RedirectToAction("Dashboard");
                     }
                     return View();
                 }
