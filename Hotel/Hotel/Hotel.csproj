@@ -159,28 +159,28 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelDatasController.cs" />
     <Compile Include="General.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hotel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hotel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="HotelData.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HotelModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HotelModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HotelModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
+      <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\General.cs" />
@@ -327,15 +327,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="HotelModel.Context.tt">
+    <Content Include="Hotel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
-      <LastGenOutput>HotelModel.Context.cs</LastGenOutput>
+      <DependentUpon>Hotel.edmx</DependentUpon>
+      <LastGenOutput>Hotel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HotelModel.tt">
+    <Content Include="Hotel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
-      <LastGenOutput>HotelModel.cs</LastGenOutput>
+      <DependentUpon>Hotel.edmx</DependentUpon>
+      <LastGenOutput>Hotel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -461,12 +461,12 @@
     <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <EntityDeploy Include="HotelModel.edmx">
+    <EntityDeploy Include="Hotel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HotelModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Hotel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HotelModel.edmx.diagram">
-      <DependentUpon>HotelModel.edmx</DependentUpon>
+    <Content Include="Hotel.edmx.diagram">
+      <DependentUpon>Hotel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

@@ -73,13 +73,13 @@ namespace Hotel.Controllers
         {
             try
             {
-                
+
 
                 if (ModelState.IsValid)
                 {
                     db.Generals.Add(general);
                     db.SaveChanges();
-                    if(general.Type == "Admin")
+                    if (general.Type == "Admin")
                         return RedirectToAction("AdminDash");
                     if (general.Type == "HotelManager")
                         return RedirectToAction("HotelDash");
@@ -319,10 +319,10 @@ namespace Hotel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(General entity)
         {
-            using (HotelEntities1 db = new HotelEntities1())
+            using (HotelEntities db = new HotelEntities())
             {
                 General user = db.Generals.SingleOrDefault(u => u.Email == entity.Email);
-                if( user== null)
+                if (user == null)
                 {
                     TempData["ErrorMSG"] = "object not found";
                     return View(entity);
@@ -330,7 +330,7 @@ namespace Hotel.Controllers
                 }
                 Console.Write(user.Password);
 
-                if(user.Password.ToString() != entity.Password.ToString())
+                if (user.Password.ToString() != entity.Password.ToString())
                 {
                     TempData["ErrorMSG"] = "Password not matched";
                     return View(entity);
