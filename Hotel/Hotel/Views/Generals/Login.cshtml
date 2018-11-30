@@ -1,6 +1,7 @@
-@model Hotel.Models.LoginVM
+@model Hotel.General
+
 @{
-    Layout = null;
+    ViewBag.Title = "Login";
 }
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     @using (Html.BeginForm("Login", "Generals", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(s => s.ReturnURL)
+        
 
         <h1>Login Functionality In MVC</h1>
         <div>
@@ -25,11 +26,11 @@
                 <br /><br />
             }
 
-            @Html.TextBoxFor(s => s.Email, new { @placeholder = "Email" })
+            @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email" })
             <br /> <br />
-            @Html.PasswordFor(s => s.Password, new { @placeholder = "Password" })
+            @Html.PasswordFor(model => model.Password, new { @placeholder = "Password" })
             <br /> <br />
-            @Html.CheckBoxFor(s => s.isRemember) Remember ME
+          
             <br /> <br />
             <button type="submit">Login</button>
         </div>

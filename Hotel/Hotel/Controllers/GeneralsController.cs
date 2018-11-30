@@ -28,6 +28,11 @@ namespace Hotel.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         // GET: Generals/Details/5
         public ActionResult Details(string id)
         {
@@ -150,6 +155,7 @@ namespace Hotel.Controllers
         }
         /*Login code goes here*/
         //LOGIN//
+        /*
         [HttpGet]
         public ActionResult Login(string returnURL)
         {
@@ -258,6 +264,88 @@ namespace Hotel.Controllers
             catch
             {
                 throw;
+            }
+        }
+        */
+
+        /*
+    [HttpGet]
+    public ActionResult Login(string returnURL)
+    {
+        var userinfo = new LoginVM();
+        return View(userinfo);
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Login(LoginVM entity)
+    {
+        using (db = new HotelEntities1())
+        {
+
+            General general = db.Generals.Find(entity.Email);
+            if (general == null)
+            {
+                TempData["ErrorMSG"] = "object not found";
+            }
+            if (entity.Password != general.Password)
+            {
+                TempData["ErrorMSG"] = "password not matched";
+            }
+            if (general != null && entity.Password == general.Password)
+            {
+                if (general.Type == "Admin")
+                {
+                    return RedirectToAction("AdminDash");
+                }
+                else
+                {
+                    TempData["ErrorMSG"] = "Access Denied! Wrong Credential";
+                    return View(entity);
+                }
+            }
+            else
+            {
+                TempData["ErrorMSG"] = "Access Denied! Wrong Credential";
+                return View(entity);
+
+            }
+
+        }
+    }
+    */
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(General entity)
+        {
+            using (HotelEntities1 db = new HotelEntities1())
+            {
+                General user = db.Generals.SingleOrDefault(u => u.Email == entity.Email);
+                if( user== null)
+                {
+                    TempData["ErrorMSG"] = "object not found";
+                    return View(entity);
+
+                }
+                Console.Write(user.Password);
+
+                if(user.Password.ToString() != entity.Password.ToString())
+                {
+                    TempData["ErrorMSG"] = "Password not matched";
+                    return View(entity);
+
+                }
+
+                if (user != null)
+                {
+                    if (user.Password.ToString() != entity.Password.ToString())
+                    {
+                        return RedirectToAction("AdminDash");
+                    }
+                    return View();
+                }
+                return View();
             }
         }
         protected override void Dispose(bool disposing)

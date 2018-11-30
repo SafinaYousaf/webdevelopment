@@ -7,7 +7,7 @@
     <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Type" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
   </EntityType>

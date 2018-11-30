@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GeneralsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelDatasController.cs" />
     <Compile Include="General.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
@@ -502,6 +503,11 @@
     <Content Include="Views\Generals\Details.cshtml" />
     <Content Include="Views\Generals\Edit.cshtml" />
     <Content Include="Views\Generals\Index.cshtml" />
+    <Content Include="Views\HotelDatas\Create.cshtml" />
+    <Content Include="Views\HotelDatas\Delete.cshtml" />
+    <Content Include="Views\HotelDatas\Details.cshtml" />
+    <Content Include="Views\HotelDatas\Edit.cshtml" />
+    <Content Include="Views\HotelDatas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
