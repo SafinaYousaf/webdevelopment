@@ -15,7 +15,7 @@ namespace Hotel.Controllers
 {
     public class GeneralsController : Controller
     {
-        private HotelEntities1 db = new HotelEntities1();
+        private HotelEntities db = new HotelEntities();
 
         // GET: Generals
         public ActionResult Index()
