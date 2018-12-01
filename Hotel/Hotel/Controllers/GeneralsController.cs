@@ -321,7 +321,7 @@ namespace Hotel.Controllers
         {
             using (HotelEntities db = new HotelEntities())
             {
-                General user = db.Generals.SingleOrDefault(u => u.Email == entity.Email);
+                General user = db.Generals.FirstOrDefault(u => u.Email == (entity.Email));
                 if (user == null)
                 {
                     TempData["ErrorMSG"] = "object not found";
@@ -329,8 +329,8 @@ namespace Hotel.Controllers
 
                 }
                 Console.Write(user.Password);
-
-                if (user.Password.ToString() != entity.Password.ToString())
+                int a = entity.Password.Count();
+                if (user.Password.Substring(0, a) != entity.Password)
                 {
                     TempData["ErrorMSG"] = "Password not matched";
                     return View(entity);
@@ -339,7 +339,8 @@ namespace Hotel.Controllers
 
                 if (user != null)
                 {
-                    if (user.Password.ToString() == entity.Password.ToString())
+                    
+                    if (user.Password.Substring(0, a) == entity.Password)
                     {
                         
                         

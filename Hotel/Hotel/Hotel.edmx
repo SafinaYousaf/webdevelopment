@@ -11,9 +11,9 @@
           </Key>
           <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="char" MaxLength="8" Nullable="false" />
-          <Property Name="ConfirmPassword" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="Email" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Type" Type="nchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="HotelData">
@@ -43,9 +43,9 @@
           </Key>
           <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="ConfirmPassword" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Type" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="HotelData">
