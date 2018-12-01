@@ -1,0 +1,44 @@
+
+USE [Hotel]
+GO
+/****** Object:  Table [dbo].[General]    Script Date: 11/26/2018 1:38:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[General](
+	[ID] [nchar](50) NOT NULL,
+	[Name] [nchar](50) NOT NULL,
+	[Email] [nchar](50) NOT NULL,
+	[Password] [nchar](50) NOT NULL,
+	[ConfirmPassword] [nchar](50) NOT NULL,
+	[Type] [nchar](25) NOT NULL,
+ CONSTRAINT [PK_General] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[HotelData]    Script Date: 11/26/2018 1:38:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HotelData](
+	[HotelID] [nchar](50) NOT NULL,
+	[HotelName] [nchar](50) NOT NULL,
+	[Ratings] [real] NULL,
+	[Category] [nchar](10) NOT NULL,
+	[Facilities] [nchar](1000) NULL,
+	[PriceRangeUpper] [real] NOT NULL,
+	[PriceRangeLower] [real] NOT NULL,
+	[RoomAvailable] [int] NOT NULL,
+ CONSTRAINT [PK_HotelData] PRIMARY KEY CLUSTERED 
+(
+	[HotelID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
