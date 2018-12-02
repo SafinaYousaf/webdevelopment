@@ -124,6 +124,10 @@ namespace Hotel.Controllers
         {
             return View();
         }
+        public ActionResult HotelDash()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
