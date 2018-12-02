@@ -508,6 +508,9 @@
     <Content Include="Views\HotelDatas\Details.cshtml" />
     <Content Include="Views\HotelDatas\Edit.cshtml" />
     <Content Include="Views\HotelDatas\Index.cshtml" />
+    <Content Include="Views\HotelDatas\HotelEdit.cshtml" />
+    <Content Include="Views\Shared\HotelDash.cshtml" />
+    <Content Include="Views\HotelDatas\HotelDash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

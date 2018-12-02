@@ -312,7 +312,7 @@ namespace Hotel.Controllers
 
         }
     }
-    */
+    
 
 
         [HttpPost]
@@ -347,6 +347,62 @@ namespace Hotel.Controllers
                 }
                 return View();
             }
+        }
+        */
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(General entity)
+        {
+            using (HotelEntities1 db = new HotelEntities1())
+            {
+                General user = db.Generals.FirstOrDefault(u => u.Email == (entity.Email));
+                if (user == null)
+                {
+                    TempData["ErrorMSG"] = "object not found";
+                    return View(entity);
+
+                }
+                Console.Write(user.Password);
+                int a = entity.Password.Count();
+                if (user.Password.Substring(0, a) != entity.Password)
+                {
+                    TempData["ErrorMSG"] = "Password not matched";
+                    return View(entity);
+
+                }
+
+                if (user != null)
+                {
+
+                    if (user.Password.Substring(0, a) == entity.Password)
+                    {
+
+
+                        if (user.Type.Substring(0, 5) == "Admin")
+                            return RedirectToAction("AdminDash");
+                        if (user.Type.Substring(0, 12) == "HotelManager")
+                            return RedirectToAction("HotelDash");
+                        if (user.Type.Substring(0, 4) == "User")
+                            return RedirectToAction("Dashboard");
+                    }
+                    return View();
+                }
+                return View();
+            }
+        }
+        //Logout//
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+        //Edit hotel
+        public ActionResult HotelEdit()
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("HotelEdit", "HotelDatas");
         }
         protected override void Dispose(bool disposing)
         {
