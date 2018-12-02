@@ -147,4 +147,3 @@ E:\Git Hub\webdevelopment\Hotel\Hotel\obj\Debug\Hotel.csproj.CoreCompileInputs.c
 E:\Git Hub\webdevelopment\Hotel\Hotel\obj\Debug\Hotel.csproj.CopyComplete
 E:\Git Hub\webdevelopment\Hotel\Hotel\obj\Debug\Hotel.dll
 E:\Git Hub\webdevelopment\Hotel\Hotel\obj\Debug\Hotel.pdb
-E:\Git Hub\webdevelopment\Hotel\Hotel\obj\Debug\Hotel.csprojAssemblyReference.cache

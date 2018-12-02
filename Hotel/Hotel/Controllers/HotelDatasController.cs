@@ -114,7 +114,16 @@ namespace Hotel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        public ActionResult HotelEdit(string id)
+        {
+            return RedirectToAction("EditHotel");
 
+        }
+        public ActionResult EditHotel()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -402,7 +402,7 @@ namespace Hotel.Controllers
         {
             Session.Abandon();
             FormsAuthentication.SignOut();
-            return RedirectToAction("HotelEdit", "HotelDatas");
+            return View("HotelEdit", "HotelDatas");
         }
         protected override void Dispose(bool disposing)
         {
