@@ -15,7 +15,7 @@ namespace Hotel.Controllers
 {
     public class GeneralsController : Controller
     {
-        private HotelEntities db = new HotelEntities();
+        private HotelEntities1 db = new HotelEntities1();
 
         // GET: Generals
         public ActionResult Index()
@@ -319,7 +319,7 @@ namespace Hotel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(General entity)
         {
-            using (HotelEntities db = new HotelEntities())
+            using (HotelEntities1 db = new HotelEntities1())
             {
                 General user = db.Generals.FirstOrDefault(u => u.Email == (entity.Email));
                 if (user == null)

@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hotel</RootNamespace>
     <AssemblyName>Hotel</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -61,11 +63,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -110,6 +109,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -155,34 +155,36 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FeedBacksController.cs" />
     <Compile Include="Controllers\GeneralsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelDatasController.cs" />
     <Compile Include="General.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hotel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Hotel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Hotel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Hotel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="HotelData.cs">
-      <DependentUpon>Hotel.tt</DependentUpon>
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\General.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\LoginVM.cs" />
@@ -327,15 +329,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Hotel.Context.tt">
+    <Content Include="HotelModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hotel.edmx</DependentUpon>
-      <LastGenOutput>Hotel.Context.cs</LastGenOutput>
+      <DependentUpon>HotelModel.edmx</DependentUpon>
+      <LastGenOutput>HotelModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Hotel.tt">
+    <Content Include="HotelModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hotel.edmx</DependentUpon>
-      <LastGenOutput>Hotel.cs</LastGenOutput>
+      <DependentUpon>HotelModel.edmx</DependentUpon>
+      <LastGenOutput>HotelModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -461,12 +463,12 @@
     <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <EntityDeploy Include="Hotel.edmx">
+    <EntityDeploy Include="HotelModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Hotel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HotelModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Hotel.edmx.diagram">
-      <DependentUpon>Hotel.edmx</DependentUpon>
+    <Content Include="HotelModel.edmx.diagram">
+      <DependentUpon>HotelModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -479,6 +481,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\FeedBacks\Create.cshtml" />
+    <Content Include="Views\FeedBacks\Delete.cshtml" />
+    <Content Include="Views\FeedBacks\Details.cshtml" />
+    <Content Include="Views\FeedBacks\Edit.cshtml" />
+    <Content Include="Views\FeedBacks\Index.cshtml" />
     <None Include="Views\Generals\HotelDash.cshtml" />
     <None Include="Views\Generals\AdminDash.cshtml" />
     <Content Include="Views\Generals\SignUp.cshtml" />

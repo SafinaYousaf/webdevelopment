@@ -7,7 +7,7 @@
     <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="ConfirmPassword" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Type" Type="nchar" MaxLength="25" Nullable="false" />
   </EntityType>
