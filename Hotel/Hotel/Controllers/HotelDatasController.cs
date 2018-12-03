@@ -25,6 +25,11 @@ namespace Hotel.Controllers
             return View();
         }
 
+        public ActionResult AddHotel()
+        {
+            return View();
+        }
+
         // GET: HotelDatas/Details/5
         public ActionResult Details(int? id)
         {
