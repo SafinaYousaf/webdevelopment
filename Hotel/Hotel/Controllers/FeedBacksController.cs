@@ -15,9 +15,33 @@ namespace Hotel.Controllers
         private HotelEntities1 db = new HotelEntities1();
 
         // GET: FeedBacks
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            var feedBack = from s in db.FeedBacks
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                feedBack = feedBack.Where(s => s.HotelName.Contains(searchString)
+                                       || s.HotelName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    feedBack = feedBack.OrderByDescending(s => s.HotelName);
+                    break;
+
+                default:
+                    feedBack = feedBack.OrderBy(s => s.HotelName);
+                    break;
+            }
             return View(db.FeedBacks.ToList());
+        }
+
+        public ActionResult Feedback()
+        {
+            return View();
         }
 
         // GET: FeedBacks/Details/5
