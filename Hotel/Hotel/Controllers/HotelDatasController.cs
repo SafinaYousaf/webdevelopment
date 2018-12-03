@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Hotel;
 
+
 namespace Hotel.Controllers
 {
     public class HotelDatasController : Controller
@@ -40,6 +41,12 @@ namespace Hotel.Controllers
         {
             return View();
         }
+
+        public ActionResult AddHotel()
+        {
+            return View();
+        }
+
 
         // POST: HotelDatas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

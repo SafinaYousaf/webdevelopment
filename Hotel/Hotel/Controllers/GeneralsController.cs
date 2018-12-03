@@ -73,9 +73,12 @@ namespace Hotel.Controllers
         {
             try
             {
-                
 
-                if (ModelState.IsValid)
+
+                General user = db.Generals.FirstOrDefault(u => u.Email == (general.Email));
+                if (user != null)
+                    ModelState.AddModelError("Email", "This Email was already taken");
+                if (ModelState.IsValid && user == null)
                 {
                     db.Generals.Add(general);
                     db.SaveChanges();
@@ -362,7 +365,7 @@ namespace Hotel.Controllers
                     return View(entity);
 
                 }
-                Console.Write(user.Password);
+                
                 int a = entity.Password.Count();
                 if (user.Password.Substring(0, a) != entity.Password)
                 {

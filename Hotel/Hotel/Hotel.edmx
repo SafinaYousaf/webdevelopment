@@ -11,9 +11,9 @@
           </Key>
           <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ConfirmPassword" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Type" Type="nchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="HotelData">
@@ -43,9 +43,9 @@
           </Key>
           <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Type" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="HotelData">
@@ -61,7 +61,7 @@
           <Property Name="PriceRangeLower" Type="Single" Nullable="false" />
           <Property Name="RoomAvailable" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="HotelEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HotelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Generals" EntityType="Self.General" />
           <EntitySet Name="HotelDatas" EntityType="Self.HotelData" />
         </EntityContainer>
@@ -70,7 +70,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HotelModelStoreContainer" CdmEntityContainer="HotelEntities1">
+        <EntityContainerMapping StorageEntityContainer="HotelModelStoreContainer" CdmEntityContainer="HotelEntities">
           <EntitySetMapping Name="Generals">
             <EntityTypeMapping TypeName="HotelModel.General">
               <MappingFragment StoreEntitySet="General">
