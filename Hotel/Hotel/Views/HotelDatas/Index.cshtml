@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Facilities)
+            @Html.DisplayNameFor(model => model.FreeWifi)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PriceRangeUpper)
@@ -31,6 +31,21 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RoomAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SwimmingPool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarPark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreeBreakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrivateParking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayLand)
         </th>
         <th></th>
     </tr>
@@ -47,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.Category)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Facilities)
+            @Html.DisplayFor(modelItem => item.FreeWifi)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PriceRangeUpper)
@@ -57,6 +72,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RoomAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SwimmingPool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarPark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreeBreakfast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrivateParking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayLand)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.HotelID }) |

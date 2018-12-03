@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Hotel;
 
-
 namespace Hotel.Controllers
 {
     public class HotelDatasController : Controller
@@ -21,16 +20,13 @@ namespace Hotel.Controllers
             return View(db.HotelDatas.ToList());
         }
 
-
         public ActionResult AdminDash()
         {
             return View();
         }
 
-        
-
         // GET: HotelDatas/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -50,18 +46,12 @@ namespace Hotel.Controllers
             return View();
         }
 
-        public ActionResult AddHotel()
-        {
-            return View();
-        }
-
-
         // POST: HotelDatas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HotelID,HotelName,Ratings,Category,Facilities,PriceRangeUpper,PriceRangeLower,RoomAvailable")] HotelData hotelData)
+        public ActionResult Create([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +64,7 @@ namespace Hotel.Controllers
         }
 
         // GET: HotelDatas/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -93,7 +83,7 @@ namespace Hotel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HotelID,HotelName,Ratings,Category,Facilities,PriceRangeUpper,PriceRangeLower,RoomAvailable")] HotelData hotelData)
+        public ActionResult Edit([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +95,7 @@ namespace Hotel.Controllers
         }
 
         // GET: HotelDatas/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -122,32 +112,14 @@ namespace Hotel.Controllers
         // POST: HotelDatas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             HotelData hotelData = db.HotelDatas.Find(id);
             db.HotelDatas.Remove(hotelData);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        /// <summary>
-        /// opens hotel edit view
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public ActionResult HotelEdit(string id)
-        {
-            return RedirectToAction("EditHotel");
 
-        }
-        public ActionResult EditHotel()
-        {
-            return View();
-        }
-       // directs to hotel dash
-        public ActionResult HotelDash()
-        {
-            return View();
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
