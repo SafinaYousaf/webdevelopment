@@ -15,7 +15,9 @@ namespace Hotel.Controllers
 {
     public class HomeController : Controller
     {
-        
+        public String constr = "Data Source=SAFINAYOUSAF\\SQLEXPRESS;Initial Catalog=Hotel;User ID=sa;Password=***********;MultipleActiveResultSets=True;Application Name=EntityFramework";
+
+        string con = ConfigurationManager.ConnectionStrings["HotelEntities1"].ConnectionString;
         public ActionResult Index()
         {
             return View();

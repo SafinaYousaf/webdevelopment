@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Hotel;
 
+
 namespace Hotel.Controllers
 {
     public class HotelDatasController : Controller
@@ -40,6 +41,12 @@ namespace Hotel.Controllers
         {
             return View();
         }
+
+        public ActionResult AddHotel()
+        {
+            return View();
+        }
+
 
         // POST: HotelDatas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -114,7 +121,25 @@ namespace Hotel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        /// <summary>
+        /// opens hotel edit view
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult HotelEdit(string id)
+        {
+            return RedirectToAction("EditHotel");
 
+        }
+        public ActionResult EditHotel()
+        {
+            return View();
+        }
+       // directs to hotel dash
+        public ActionResult HotelDash()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -75,11 +75,14 @@ namespace Hotel.Controllers
             {
 
 
-                if (ModelState.IsValid)
+                General user = db.Generals.FirstOrDefault(u => u.Email == (general.Email));
+                if (user != null)
+                    ModelState.AddModelError("Email", "This Email was already taken");
+                if (ModelState.IsValid && user == null)
                 {
                     db.Generals.Add(general);
                     db.SaveChanges();
-                    if (general.Type == "Admin")
+                    if(general.Type == "Admin")
                         return RedirectToAction("AdminDash");
                     if (general.Type == "HotelManager")
                         return RedirectToAction("HotelDash");
@@ -312,9 +315,43 @@ namespace Hotel.Controllers
 
         }
     }
-    */
+    
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(General entity)
+        {
+            using (HotelEntities1 db = new HotelEntities1())
+            {
+                General user = db.Generals.SingleOrDefault(u => u.Email == entity.Email);
+                if( user== null)
+                {
+                    TempData["ErrorMSG"] = "object not found";
+                    return View(entity);
+
+                }
+                Console.Write(user.Password);
+
+                if(user.Password.ToString() != entity.Password.ToString())
+                {
+                    TempData["ErrorMSG"] = "Password not matched";
+                    return View(entity);
+
+                }
+
+                if (user != null)
+                {
+                    if (user.Password.ToString() != entity.Password.ToString())
+                    {
+                        return RedirectToAction("AdminDash");
+                    }
+                    return View();
+                }
+                return View();
+            }
+        }
+        */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(General entity)
@@ -339,11 +376,11 @@ namespace Hotel.Controllers
 
                 if (user != null)
                 {
-                    
+
                     if (user.Password.Substring(0, a) == entity.Password)
                     {
-                        
-                        
+
+
                         if (user.Type.Substring(0, 5) == "Admin")
                             return RedirectToAction("AdminDash");
                         if (user.Type.Substring(0, 12) == "HotelManager")
@@ -355,6 +392,26 @@ namespace Hotel.Controllers
                 }
                 return View();
             }
+        }
+        //Logout//
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+        //AddHotel
+        public ActionResult AddHotel()
+        {
+            
+            return View();
+        }
+        //Edit hotel
+        public ActionResult HotelEdit()
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return View("HotelEdit", "HotelDatas");
         }
         protected override void Dispose(bool disposing)
         {
