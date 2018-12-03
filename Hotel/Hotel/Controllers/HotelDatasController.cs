@@ -21,6 +21,12 @@ namespace Hotel.Controllers
             return View(db.HotelDatas.ToList());
         }
 
+
+        public ActionResult AdminDash()
+        {
+            return View();
+        }
+
         // GET: HotelDatas/Details/5
         public ActionResult Details(string id)
         {

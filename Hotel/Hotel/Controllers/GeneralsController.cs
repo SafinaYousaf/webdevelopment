@@ -59,10 +59,7 @@ namespace Hotel.Controllers
             return View();
         }
 
-        public ActionResult AdminDash()
-        {
-            return View();
-        }
+        
 
         // POST: Generals/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -83,7 +80,7 @@ namespace Hotel.Controllers
                     db.Generals.Add(general);
                     db.SaveChanges();
                     if(general.Type == "Admin")
-                        return RedirectToAction("AdminDash");
+                        return RedirectToAction("AdminDash", "HotelDatas");
                     if (general.Type == "HotelManager")
                         return RedirectToAction("HotelDash");
                     if (general.Type == "User")
