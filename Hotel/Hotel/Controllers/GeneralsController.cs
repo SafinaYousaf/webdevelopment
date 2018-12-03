@@ -382,7 +382,7 @@ namespace Hotel.Controllers
 
 
                         if (user.Type.Substring(0, 5) == "Admin")
-                            return RedirectToAction("AdminDash");
+                            return RedirectToAction("AdminDash", "HotelDatas");
                         if (user.Type.Substring(0, 12) == "HotelManager")
                             return RedirectToAction("HotelDash");
                         if (user.Type.Substring(0, 4) == "User")
