@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="HotelName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Feedback" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="General">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,23 +29,39 @@
           <Key>
             <PropertyRef Name="HotelID" />
           </Key>
-          <Property Name="HotelID" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="HotelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HotelName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Ratings" Type="real" />
           <Property Name="Category" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Facilities" Type="nchar" MaxLength="1000" />
+          <Property Name="FreeWifi" Type="bit" />
           <Property Name="PriceRangeUpper" Type="real" Nullable="false" />
           <Property Name="PriceRangeLower" Type="real" Nullable="false" />
           <Property Name="RoomAvailable" Type="int" Nullable="false" />
+          <Property Name="SwimmingPool" Type="bit" />
+          <Property Name="CarPark" Type="bit" />
+          <Property Name="FreeBreakfast" Type="bit" />
+          <Property Name="PrivateParking" Type="bit" />
+          <Property Name="PlayLand" Type="bit" />
         </EntityType>
         <EntityContainer Name="HotelModelStoreContainer">
+          <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="General" EntityType="Self.General" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HotelData" EntityType="Self.HotelData" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Feedback1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="General">
           <Key>
             <PropertyRef Name="ID" />
@@ -52,16 +77,22 @@
           <Key>
             <PropertyRef Name="HotelID" />
           </Key>
-          <Property Name="HotelID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HotelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Ratings" Type="Single" />
           <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Facilities" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+          <Property Name="FreeWifi" Type="Boolean" />
           <Property Name="PriceRangeUpper" Type="Single" Nullable="false" />
           <Property Name="PriceRangeLower" Type="Single" Nullable="false" />
           <Property Name="RoomAvailable" Type="Int32" Nullable="false" />
+          <Property Name="SwimmingPool" Type="Boolean" />
+          <Property Name="CarPark" Type="Boolean" />
+          <Property Name="FreeBreakfast" Type="Boolean" />
+          <Property Name="PrivateParking" Type="Boolean" />
+          <Property Name="PlayLand" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="HotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FeedBacks" EntityType="Self.FeedBack" />
           <EntitySet Name="Generals" EntityType="Self.General" />
           <EntitySet Name="HotelDatas" EntityType="Self.HotelData" />
         </EntityContainer>
@@ -71,6 +102,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HotelModelStoreContainer" CdmEntityContainer="HotelEntities">
+          <EntitySetMapping Name="FeedBacks">
+            <EntityTypeMapping TypeName="HotelModel.FeedBack">
+              <MappingFragment StoreEntitySet="FeedBack">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="Feedback1" ColumnName="Feedback" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Generals">
             <EntityTypeMapping TypeName="HotelModel.General">
               <MappingFragment StoreEntitySet="General">
@@ -90,10 +131,15 @@
                 <ScalarProperty Name="HotelName" ColumnName="HotelName" />
                 <ScalarProperty Name="Ratings" ColumnName="Ratings" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Facilities" ColumnName="Facilities" />
+                <ScalarProperty Name="FreeWifi" ColumnName="FreeWifi" />
                 <ScalarProperty Name="PriceRangeUpper" ColumnName="PriceRangeUpper" />
                 <ScalarProperty Name="PriceRangeLower" ColumnName="PriceRangeLower" />
                 <ScalarProperty Name="RoomAvailable" ColumnName="RoomAvailable" />
+                <ScalarProperty Name="SwimmingPool" ColumnName="SwimmingPool" />
+                <ScalarProperty Name="CarPark" ColumnName="CarPark" />
+                <ScalarProperty Name="FreeBreakfast" ColumnName="FreeBreakfast" />
+                <ScalarProperty Name="PrivateParking" ColumnName="PrivateParking" />
+                <ScalarProperty Name="PlayLand" ColumnName="PlayLand" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

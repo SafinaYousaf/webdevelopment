@@ -14,13 +14,18 @@ namespace Hotel
     
     public partial class HotelData
     {
-        public string HotelID { get; set; }
+        public int HotelID { get; set; }
         public string HotelName { get; set; }
         public Nullable<float> Ratings { get; set; }
         public string Category { get; set; }
-        public string Facilities { get; set; }
+        public Nullable<bool> FreeWifi { get; set; }
         public float PriceRangeUpper { get; set; }
         public float PriceRangeLower { get; set; }
         public int RoomAvailable { get; set; }
+        public Nullable<bool> SwimmingPool { get; set; }
+        public Nullable<bool> CarPark { get; set; }
+        public Nullable<bool> FreeBreakfast { get; set; }
+        public Nullable<bool> PrivateParking { get; set; }
+        public Nullable<bool> PlayLand { get; set; }
     }
 }
