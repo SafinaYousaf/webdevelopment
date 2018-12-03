@@ -114,7 +114,11 @@ namespace Hotel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+        /// <summary>
+        /// opens hotel edit view
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult HotelEdit(string id)
         {
             return RedirectToAction("EditHotel");
@@ -124,6 +128,7 @@ namespace Hotel.Controllers
         {
             return View();
         }
+       // directs to hotel dash
         public ActionResult HotelDash()
         {
             return View();

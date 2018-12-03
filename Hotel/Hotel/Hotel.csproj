@@ -481,6 +481,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <None Include="Views\Generals\HotelDash.cshtml" />
     <None Include="Views\Generals\AdminDash.cshtml" />
+    <None Include="Views\Generals\AddHotel.cshtml" />
     <Content Include="Views\Generals\SignUp.cshtml" />
     <Content Include="Views\Generals\Login.cshtml" />
     <None Include="Views\Home\signup.cshtml" />
@@ -508,7 +509,6 @@
     <Content Include="Views\HotelDatas\Details.cshtml" />
     <Content Include="Views\HotelDatas\Edit.cshtml" />
     <Content Include="Views\HotelDatas\Index.cshtml" />
-    <Content Include="Views\HotelDatas\HotelEdit.cshtml" />
     <Content Include="Views\Shared\HotelDash.cshtml" />
     <Content Include="Views\HotelDatas\HotelDash.cshtml" />
     <Content Include="Views\HotelDatas\EditHotel.cshtml" />
