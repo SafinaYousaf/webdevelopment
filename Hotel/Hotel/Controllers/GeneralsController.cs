@@ -328,7 +328,7 @@ namespace Hotel.Controllers
                     return View(entity);
 
                 }
-                Console.Write(user.Password);
+                
                 int a = entity.Password.Count();
                 if (user.Password.Substring(0, a) != entity.Password)
                 {
