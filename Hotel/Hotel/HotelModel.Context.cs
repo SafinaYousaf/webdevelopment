@@ -25,6 +25,7 @@ namespace Hotel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<General> Generals { get; set; }
         public virtual DbSet<HotelData> HotelDatas { get; set; }
     }
