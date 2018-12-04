@@ -18,14 +18,14 @@ namespace Hotel
         public string HotelName { get; set; }
         public Nullable<float> Ratings { get; set; }
         public string Category { get; set; }
-        public Nullable<bool> FreeWifi { get; set; }
+        public bool FreeWifi { get; set; }
         public float PriceRangeUpper { get; set; }
         public float PriceRangeLower { get; set; }
         public int RoomAvailable { get; set; }
-        public Nullable<bool> SwimmingPool { get; set; }
-        public Nullable<bool> CarPark { get; set; }
-        public Nullable<bool> FreeBreakfast { get; set; }
-        public Nullable<bool> PrivateParking { get; set; }
-        public Nullable<bool> PlayLand { get; set; }
+        public bool SwimmingPool { get; set; }
+        public bool CarPark { get; set; }
+        public bool FreeBreakfast { get; set; }
+        public bool PrivateParking { get; set; }
+        public bool PlayLand { get; set; }
     }
 }

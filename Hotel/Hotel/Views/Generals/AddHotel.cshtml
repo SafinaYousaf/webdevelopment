@@ -1,0 +1,206 @@
+﻿@model Hotel.HotelData
+
+@{
+    ViewBag.Title = "AddHotel";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Add Hotel
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/assets/demo/demo.css" rel="stylesheet" />
+</head>
+<body class="">
+   @using (Html.BeginForm())
+   {
+    @Html.AntiForgeryToken()
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+            -->
+            <div class="logo">
+
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                    TravOre
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a href="~/AdminDash.html">
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="~/AddHotel.html">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>Add Hotel</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="~/DeletePerson.html">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>Delete Person</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/about.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <p>Log Off</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent  bg-primary  navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="#pablo">TravOre</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+
+         </div>
+        <div class="main-panel">
+
+             <div class="panel-header panel-header-sm">
+             </div>
+             <div class="content">
+               <div class="row">
+                   <div class="col-md-8">
+                       <div class="card">
+                           <div class="card-header">
+                               <h5 class="title">Add Hotel</h5>
+                           </div>
+                           <di     v class="card-body">
+                               <form>
+                                   <div class="row">
+
+                                       
+                                       <div class="col-md-4 pl-1">
+                                           <div class="form-group">
+                                               @Html.LabelFor(model => model.HotelName, htmlAttributes: new { @class = "input100" })
+                                               @Html.EditorFor(model => model.HotelName, new { htmlAttributes = new { @class = "form-control" } })
+
+
+                                           </div>
+                                       </div>
+                                       <div class="col-md-3 px-1">
+                                           <div class="form-group">
+                                               @Html.LabelFor(model => model.Ratings, htmlAttributes: new { @class = "input100" })
+                                               @Html.EditorFor(model => model.Ratings, new { htmlAttributes = new { @class = "form-control" } })
+
+
+                                           </div>
+                                       </div>
+                                       <div class="col-md-3 px-1">
+                                           <div class="form-group">
+                                               @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "input100" })
+                                               @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+
+
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="row">
+                                       @Html.LabelFor(model => model.PriceRangeUpper, htmlAttributes: new { @class = "input100" })
+                                       @Html.EditorFor(model => model.PriceRangeUpper, new { htmlAttributes = new { @class = "form-control" } })
+                                       @Html.LabelFor(model => model.PriceRangeLower, htmlAttributes: new { @class = "input100" })
+                                       @Html.EditorFor(model => model.PriceRangeLower, new { htmlAttributes = new { @class = "form-control" } })
+                                       @Html.LabelFor(model => model.RoomAvailable, htmlAttributes: new { @class = "input100" })
+                                       @Html.EditorFor(model => model.RoomAvailable, new { htmlAttributes = new { @class = "form-control" } })
+
+
+
+                                   </div>
+                                   
+                                   <div class="row">
+                                       <div class="col-md-6 pl-1">
+                                           <div class="form-group">
+                                               <label style="padding-top:30px; font-size: 20px;">Facalities</label>
+                                           </div>
+                                       </div>
+
+
+
+                                   </div>
+                                   @Html.CheckBoxFor(model => model.FreeWifi)  Free Wifi <br>
+
+
+                                   @Html.CheckBoxFor(model => model.SwimmingPool)  Swimming pool <br>
+                                   @Html.CheckBoxFor(model => model.CarPark)Car park <br>
+                                   @Html.CheckBoxFor(model => model.FreeBreakfast) Free Breakfast <br>
+                                   @Html.CheckBoxFor(model => model.PrivateParking)  Private Parking <br>
+                                   @Html.CheckBoxFor(model => model.PlayLand)  Play Land <br>
+
+
+                                   <div class="row">
+                                       <div class="col-md-12">
+                                           <div class="form-group">
+                                               <label>About</label>
+                                               <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike"></textarea>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <button class="button search_button1">Save</button>
+                               </form>
+                           </div>
+                       </div>
+                </div>
+             </div>
+         </div>
+    
+  }
+                <!--   Core JS Files   -->
+                <!--   Core JS Files   -->
+                <script src="~/assets/js/core/jquery.min.js"></script>
+                <script src="~/assets/js/core/popper.min.js"></script>
+                <script src="~/assets/js/core/bootstrap.min.js"></script>
+                <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+                <!--  Google Maps Plugin    -->
+                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+                <!-- Chart JS -->
+                <script src="~/assets/js/plugins/chartjs.min.js"></script>
+                <!--  Notifications Plugin    -->
+                <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
+                <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+                <script src="~/assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
+                <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+                <script src="~/assets/demo/demo.js"></script>
+</body>
+</html>

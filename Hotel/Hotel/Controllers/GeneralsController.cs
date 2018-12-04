@@ -406,9 +406,40 @@ namespace Hotel.Controllers
         //Edit hotel
         public ActionResult HotelEdit()
         {
-            Session.Abandon();
-            FormsAuthentication.SignOut();
+            
             return View("HotelEdit", "HotelDatas");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddHotel([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper, PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking, PlayLand")] HotelData Hotelobj)
+        {
+            try
+            {
+
+
+                //General user = db.Generals.FirstOrDefault(u => u.Email == (general.Email));
+                //if (user != null)
+                  ///  ModelState.AddModelError("Email", "This Email was already taken");
+                if (ModelState.IsValid )
+                {
+                    db.HotelDatas.Add(Hotelobj);
+                    db.SaveChanges();
+                   // if (general.Type == "Admin")
+                    //    return RedirectToAction("AdminDash", "HotelDatas");
+                    //if (general.Type == "HotelManager")
+                      //  return RedirectToAction("HotelDash");
+                    //if (general.Type == "User")
+                      //  return RedirectToAction("Dashboard");
+                }
+            }
+
+            catch (DataException)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+
+            return View(Hotelobj);
         }
         protected override void Dispose(bool disposing)
         {
