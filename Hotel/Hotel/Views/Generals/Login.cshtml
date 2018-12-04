@@ -1,4 +1,4 @@
-@model Hotel.General
+﻿@model Hotel.General
 
 @{
     ViewBag.Title = "Login";
@@ -78,11 +78,13 @@
                                 Login
                             </button>
                         </div>
+                        
                         <div class="text-center p-t-136">
-                            <a class="txt2" href="SignUp">
-                                Create your Account
-                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                            <a href="@Url.Action("SignUp", "Generals")">
+                                <i class="fa fa-long-arrow-right m-l-5"  aria-hidden="true"></i>
+                                <p>Create Your account</p>
                             </a>
+                            
                         </div>
 
                         <div class="text-center p-t-90">
