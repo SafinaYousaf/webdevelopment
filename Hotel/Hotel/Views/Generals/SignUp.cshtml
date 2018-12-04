@@ -77,7 +77,7 @@
 
                                 @Html.ValidationMessageFor(model => model.Email)
                             </div>
-                            
+
                         </div>
                         <span class="focus-input100"></span>
                         <span class="focus-input100" data-placeholder="&#xf003;"></span>
@@ -104,7 +104,7 @@
                                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "input100" })
 
 
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100" } })
+                                @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "input100" }, style = "background-color: #99b9ff; color: white" })
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
                                 @Html.ValidationMessageFor(model => model.Password)
                             </div>
@@ -117,7 +117,7 @@
                                 @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "input100" })
 
 
-                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input100" } })
+                                @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input100" }, style = "background-color: #99b9ff; color: white" })
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
                                 @Html.ValidationMessageFor(model => model.ConfirmPassword)
                             </div>
@@ -129,7 +129,7 @@
                                 @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "input100" })
 
 
-                                @Html.DropDownListFor(model => model.Type, new SelectList(Enum.GetValues(typeof(listType))), htmlAttributes: new { @class = "input100" , style = "background-color: #99b9ff" })
+                                @Html.DropDownListFor(model => model.Type, new SelectList(Enum.GetValues(typeof(listType))), htmlAttributes: new { @class = "input100", style = "background-color: #99b9ff" })
 
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
                                 @Html.ValidationMessageFor(model => model.Type)

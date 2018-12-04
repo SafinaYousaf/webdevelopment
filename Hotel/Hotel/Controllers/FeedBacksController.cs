@@ -10,117 +10,131 @@ using Hotel;
 
 namespace Hotel.Controllers
 {
-    public class HotelDatasController : Controller
+    public class FeedBacksController : Controller
     {
-        private HotelEntities db = new HotelEntities();
+        private HotelEntities1 db = new HotelEntities1();
 
-        // GET: HotelDatas
-        public ActionResult Index()
+        // GET: FeedBacks
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(db.HotelDatas.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            var feedBack = from s in db.FeedBacks
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                feedBack = feedBack.Where(s => s.HotelName.Contains(searchString)
+                                       || s.HotelName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    feedBack = feedBack.OrderByDescending(s => s.HotelName);
+                    break;
+
+                default:
+                    feedBack = feedBack.OrderBy(s => s.HotelName);
+                    break;
+            }
+            return View(db.FeedBacks.ToList());
         }
 
-        public ActionResult AdminDash()
+        public ActionResult Feedback()
         {
             return View();
         }
 
-        public ActionResult AddHotel()
-        {
-            return View();
-        }
-
-        // GET: HotelDatas/Details/5
+        // GET: FeedBacks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HotelData hotelData = db.HotelDatas.Find(id);
-            if (hotelData == null)
+            FeedBack feedBack = db.FeedBacks.Find(id);
+            if (feedBack == null)
             {
                 return HttpNotFound();
             }
-            return View(hotelData);
+            return View(feedBack);
         }
 
-        // GET: HotelDatas/Create
+        // GET: FeedBacks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HotelDatas/Create
+        // POST: FeedBacks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
+        public ActionResult Create([Bind(Include = "UserName,HotelName,Feedback1,Id")] FeedBack feedBack)
         {
             if (ModelState.IsValid)
             {
-                db.HotelDatas.Add(hotelData);
+                db.FeedBacks.Add(feedBack);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(hotelData);
+            return View(feedBack);
         }
 
-        // GET: HotelDatas/Edit/5
+        // GET: FeedBacks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HotelData hotelData = db.HotelDatas.Find(id);
-            if (hotelData == null)
+            FeedBack feedBack = db.FeedBacks.Find(id);
+            if (feedBack == null)
             {
                 return HttpNotFound();
             }
-            return View(hotelData);
+            return View(feedBack);
         }
 
-        // POST: HotelDatas/Edit/5
+        // POST: FeedBacks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
+        public ActionResult Edit([Bind(Include = "UserName,HotelName,Feedback1,Id")] FeedBack feedBack)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hotelData).State = EntityState.Modified;
+                db.Entry(feedBack).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(hotelData);
+            return View(feedBack);
         }
 
-        // GET: HotelDatas/Delete/5
+        // GET: FeedBacks/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HotelData hotelData = db.HotelDatas.Find(id);
-            if (hotelData == null)
+            FeedBack feedBack = db.FeedBacks.Find(id);
+            if (feedBack == null)
             {
                 return HttpNotFound();
             }
-            return View(hotelData);
+            return View(feedBack);
         }
 
-        // POST: HotelDatas/Delete/5
+        // POST: FeedBacks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HotelData hotelData = db.HotelDatas.Find(id);
-            db.HotelDatas.Remove(hotelData);
+            FeedBack feedBack = db.FeedBacks.Find(id);
+            db.FeedBacks.Remove(feedBack);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
