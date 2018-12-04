@@ -116,15 +116,14 @@
 
                                                @Html.LabelFor(model => model.HotelName, htmlAttributes: new { @class = "input100" })
                                                @Html.EditorFor(model => model.HotelName, new { htmlAttributes = new { @class = "form-control" } })
-                                               
+
                                            </div>
                                        </div>
                                        <div class="col-md-4 pl-1">
                                            <div class="form-group">
                                                @Html.LabelFor(model => model.HotelID, htmlAttributes: new { @class = "input100" })
                                                @Html.EditorFor(model => model.HotelID, new { htmlAttributes = new { @class = "form-control" } })
-                                               <label for="exampleInputEmail1">Hotel Id</label>
-                                               <input type="number" class="form-control" placeholder="Hotel Id">
+
                                            </div>
                                        </div>
                                    </div>
@@ -143,12 +142,14 @@
 
 
                                    </div>
-                                   <input type="checkbox" name="fac1" value="wifi"> Free Wifi <br>
-                                   <input type="checkbox" name="fac2" value="pool"> Swimming pool <br>
-                                   <input type="checkbox" name="fac3" value="carpark" checked> Car park <br>
-                                   <input type="checkbox" name="fac4" value="breakfast"> Free Breakfast <br>
-                                   <input type="checkbox" name="fac5" value="parking"> Private Parking <br>
-                                   <input type="checkbox" name="fac6" value="play" checked> Play Land <br>
+                                   @Html.CheckBoxFor(model => model.FreeWifi)  Free Wifi <br>
+                                   @Html.CheckBoxFor(model => model.SwimmingPool)  Swimming pool <br>
+
+                                   <input type="checkbox" name="fac2" value="pool">
+                                   @Html.CheckBoxFor(model => model.CarPark)Car park <br>
+                                   @Html.CheckBoxFor(model => model.FreeBreakfast) Free Breakfast <br>
+                                   @Html.CheckBoxFor(model => model.PrivateParking)  Private Parking <br>
+                                   @Html.CheckBoxFor(model => model.PlayLand)  Play Land <br>
 
 
                                    <div class="row">
@@ -164,8 +165,8 @@
                            </div>
                        </div>
                 </div>
-         </div>
              </div>
+         </div>
     
   }
                 <!--   Core JS Files   -->

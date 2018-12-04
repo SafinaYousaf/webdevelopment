@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FeedBack">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,23 +33,22 @@
           <Property Name="HotelName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Ratings" Type="real" />
           <Property Name="Category" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="FreeWifi" Type="bit" />
+          <Property Name="FreeWifi" Type="bit" Nullable="false" />
           <Property Name="PriceRangeUpper" Type="real" Nullable="false" />
           <Property Name="PriceRangeLower" Type="real" Nullable="false" />
           <Property Name="RoomAvailable" Type="int" Nullable="false" />
-          <Property Name="SwimmingPool" Type="bit" />
-          <Property Name="CarPark" Type="bit" />
-          <Property Name="FreeBreakfast" Type="bit" />
-          <Property Name="PrivateParking" Type="bit" />
-          <Property Name="PlayLand" Type="bit" />
+          <Property Name="SwimmingPool" Type="bit" Nullable="false" />
+          <Property Name="CarPark" Type="bit" Nullable="false" />
+          <Property Name="FreeBreakfast" Type="bit" Nullable="false" />
+          <Property Name="PrivateParking" Type="bit" Nullable="false" />
+          <Property Name="PlayLand" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="HotelModelStoreContainer">
           <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="General" EntityType="Self.General" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HotelData" EntityType="Self.HotelData" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -81,15 +80,15 @@
           <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Ratings" Type="Single" />
           <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="FreeWifi" Type="Boolean" />
+          <Property Name="FreeWifi" Type="Boolean" Nullable="false" />
           <Property Name="PriceRangeUpper" Type="Single" Nullable="false" />
           <Property Name="PriceRangeLower" Type="Single" Nullable="false" />
           <Property Name="RoomAvailable" Type="Int32" Nullable="false" />
-          <Property Name="SwimmingPool" Type="Boolean" />
-          <Property Name="CarPark" Type="Boolean" />
-          <Property Name="FreeBreakfast" Type="Boolean" />
-          <Property Name="PrivateParking" Type="Boolean" />
-          <Property Name="PlayLand" Type="Boolean" />
+          <Property Name="SwimmingPool" Type="Boolean" Nullable="false" />
+          <Property Name="CarPark" Type="Boolean" Nullable="false" />
+          <Property Name="FreeBreakfast" Type="Boolean" Nullable="false" />
+          <Property Name="PrivateParking" Type="Boolean" Nullable="false" />
+          <Property Name="PlayLand" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="HotelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="FeedBacks" EntityType="Self.FeedBack" />
