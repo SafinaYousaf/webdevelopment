@@ -417,19 +417,12 @@ namespace Hotel.Controllers
             {
 
 
-                //General user = db.Generals.FirstOrDefault(u => u.Email == (general.Email));
-                //if (user != null)
-                  ///  ModelState.AddModelError("Email", "This Email was already taken");
+                
                 if (ModelState.IsValid )
                 {
                     db.HotelDatas.Add(Hotelobj);
                     db.SaveChanges();
-                   // if (general.Type == "Admin")
-                    //    return RedirectToAction("AdminDash", "HotelDatas");
-                    //if (general.Type == "HotelManager")
-                      //  return RedirectToAction("HotelDash");
-                    //if (general.Type == "User")
-                      //  return RedirectToAction("Dashboard");
+                   
                 }
             }
 
