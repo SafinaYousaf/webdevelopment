@@ -413,6 +413,7 @@ namespace Hotel.Controllers
             FormsAuthentication.SignOut();
             return View("HotelEdit", "HotelDatas");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
