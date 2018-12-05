@@ -409,31 +409,7 @@ namespace Hotel.Controllers
             
             return View("HotelEdit", "HotelDatas");
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddHotel([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper, PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking, PlayLand")] HotelData Hotelobj)
-        {
-            try
-            {
-
-
-                
-                if (ModelState.IsValid )
-                {
-                    db.HotelDatas.Add(Hotelobj);
-                    db.SaveChanges();
-                   
-                }
-            }
-
-            catch (DataException)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-            }
-
-            return View(Hotelobj);
-        }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
