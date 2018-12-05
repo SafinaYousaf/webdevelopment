@@ -397,8 +397,14 @@ namespace Hotel.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        
-        
+        public ActionResult AdminDash()
+        {
+            return View(db.HotelDatas.ToList());
+        }
+        public ActionResult Delete()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
