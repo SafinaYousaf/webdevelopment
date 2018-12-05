@@ -15,15 +15,12 @@ namespace Hotel.Controllers
         private HotelEntities db = new HotelEntities();
 
         // GET: HotelDatas
-        public ActionResult Index()
+        public ActionResult AdminDash()
         {
             return View(db.HotelDatas.ToList());
         }
 
-        public ActionResult AdminDash()
-        {
-            return View();
-        }
+        
 
         public ActionResult AddHotel()
         {
