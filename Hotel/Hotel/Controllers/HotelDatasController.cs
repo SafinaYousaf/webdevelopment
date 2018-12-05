@@ -20,7 +20,7 @@ namespace Hotel.Controllers
             return View(db.HotelDatas.ToList());
         }
 
-        
+
 
         public ActionResult AddHotel()
         {

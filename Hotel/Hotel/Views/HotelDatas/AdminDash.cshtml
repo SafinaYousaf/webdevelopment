@@ -121,51 +121,49 @@
                         </div>
 
 
+
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.HotelName)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </th>
+
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.HotelName)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.HotelID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.HotelID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.HotelID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+
+
+
+
+
+
+
                         
-
-<table class="table">
-                        <tr>
-                        <th>
-            @Html.DisplayNameFor(model => model.HotelName)
-        </th>
-                        
-                        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-                       
-    </tr>
-
-@foreach (var item in Model) {
-                        <tr>
-                        <td>
-            @Html.DisplayFor(modelItem => item.HotelName)
-        </td>
-                        
-                        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-                       
-                        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HotelID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HotelID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HotelID })
-        </td>
-    </tr>
-}
-
-</table>
-
-
-
-
-
-
-
-
-                        <h5> Name </h5><textarea style="width: 200px; height:50px;"></textarea><br>
-                        <button class="button search_button1 login100-form-btn" style="background-color:lightblue; border-radius:50px;">Delete</button>
-                        <button class="button search_button1 login100-form-btn" style="background-color:lightblue; border-radius:50px;"><a href="@Url.Action("HotelEdit", "HotelDatas")" style="color:black;">Edit</a></button>
-
                     </div>
                 </div>
             </div>
