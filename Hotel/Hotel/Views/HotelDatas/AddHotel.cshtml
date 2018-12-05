@@ -24,7 +24,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/assets/demo/demo.css" rel="stylesheet" />
 </head>
-<body class="">
+<body onload="form.reset();">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -49,7 +49,7 @@
                         </li>
 
                         <li class="active">
-                            <a href="@Url.Action("AddHotel", "HotelDatas")">
+                            <a href="~/AddHotel.html">
                                 <i class="now-ui-icons location_map-big"></i>
                                 <p>Add Hotel</p>
                             </a>
@@ -176,7 +176,9 @@
 
                                         </div>
                                     </div>
+                                    
                                     <button class="button search_button1">Save</button>
+                                    
                                 </form>
                         </div>
                     </div>
@@ -187,7 +189,13 @@
     }
     <!--   Core JS Files   -->
     <!--   Core JS Files   -->
-    <script src="~/assets/js/core/jquery.min.js"></script>
+    <script>
+        $("#cancel").click(function () {
+            $('#form_add')[0].reset();
+            $("#insert").text("");
+        });
+      </script>
+            <script src="~/assets/js/core/jquery.min.js"></script>
     <script src="~/assets/js/core/popper.min.js"></script>
     <script src="~/assets/js/core/bootstrap.min.js"></script>
     <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
