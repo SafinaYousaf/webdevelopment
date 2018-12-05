@@ -27,7 +27,13 @@ namespace Hotel.Controllers
             return View();
         }
 
+        
+        //Edit hotel
+        public ActionResult HotelEdit()
+        {
 
+            return View("HotelEdit", "HotelDatas");
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddHotel([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper, PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking, PlayLand")] HotelData Hotelobj)

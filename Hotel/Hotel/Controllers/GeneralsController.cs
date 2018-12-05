@@ -397,18 +397,7 @@ namespace Hotel.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        //AddHotel
-        public ActionResult AddHotel()
-        {
-            
-            return View();
-        }
-        //Edit hotel
-        public ActionResult HotelEdit()
-        {
-            
-            return View("HotelEdit", "HotelDatas");
-        }
+        
         
         protected override void Dispose(bool disposing)
         {
