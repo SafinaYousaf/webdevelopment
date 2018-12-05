@@ -27,5 +27,6 @@ namespace Hotel
         public bool FreeBreakfast { get; set; }
         public bool PrivateParking { get; set; }
         public bool PlayLand { get; set; }
+        public string About { get; set; }
     }
 }
