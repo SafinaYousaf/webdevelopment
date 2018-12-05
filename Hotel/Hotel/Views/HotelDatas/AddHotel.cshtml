@@ -24,7 +24,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/assets/demo/demo.css" rel="stylesheet" />
 </head>
-<body onload="form.reset();">
+<body class="">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -42,7 +42,7 @@
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li>
-                            <a href="@Url.Action("AdminDash", "Generals")">
+                            <a href="~/AdminDash.html">
                                 <i class="now-ui-icons design_app"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -56,7 +56,7 @@
                         </li>
 
                         <li>
-                            <a href="@Url.Action("Delete", "Generals")">
+                            <a href="~/DeletePerson.html">
                                 <i class="now-ui-icons users_single-02"></i>
                                 <p>Delete Person</p>
                             </a>
@@ -176,9 +176,7 @@
 
                                         </div>
                                     </div>
-                                    
                                     <button class="button search_button1">Save</button>
-                                    
                                 </form>
                         </div>
                     </div>
@@ -189,13 +187,7 @@
     }
     <!--   Core JS Files   -->
     <!--   Core JS Files   -->
-    <script>
-        $("#cancel").click(function () {
-            $('#form_add')[0].reset();
-            $("#insert").text("");
-        });
-      </script>
-            <script src="~/assets/js/core/jquery.min.js"></script>
+    <script src="~/assets/js/core/jquery.min.js"></script>
     <script src="~/assets/js/core/popper.min.js"></script>
     <script src="~/assets/js/core/bootstrap.min.js"></script>
     <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
