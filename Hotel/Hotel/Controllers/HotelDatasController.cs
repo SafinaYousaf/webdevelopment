@@ -47,7 +47,7 @@ namespace Hotel.Controllers
                 {
                     db.HotelDatas.Add(Hotelobj);
                     db.SaveChanges();
-
+                    return RedirectToAction("AdminDash");
                 }
             }
 
@@ -99,7 +99,7 @@ namespace Hotel.Controllers
         }
 
         // GET: HotelDatas/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult EditHotel(int? id)
         {
             if (id == null)
             {
@@ -118,13 +118,13 @@ namespace Hotel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
+        public ActionResult EditHotel([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(hotelData).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminDash");
             }
             return View(hotelData);
         }
@@ -152,7 +152,7 @@ namespace Hotel.Controllers
             HotelData hotelData = db.HotelDatas.Find(id);
             db.HotelDatas.Remove(hotelData);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminDash");
         }
 
         protected override void Dispose(bool disposing)
