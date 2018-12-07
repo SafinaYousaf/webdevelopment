@@ -11,11 +11,9 @@ namespace Hotel
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class HotelData
     {
-        [Required(ErrorMessage = "Please enter Hotel name")]
         public int HotelID { get; set; }
         public string HotelName { get; set; }
         public Nullable<float> Ratings { get; set; }
