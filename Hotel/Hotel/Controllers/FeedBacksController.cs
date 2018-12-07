@@ -12,7 +12,7 @@ namespace Hotel.Controllers
 {
     public class FeedBacksController : Controller
     {
-        private HotelEntities1 db = new HotelEntities1();
+        private HotelEntities db = new HotelEntities();
 
         // GET: FeedBacks
         public ActionResult Index(string sortOrder, string searchString)
