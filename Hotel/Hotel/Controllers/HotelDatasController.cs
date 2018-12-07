@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Hotel;
+using Hotel.Models;
 
 namespace Hotel.Controllers
 {
@@ -97,6 +98,77 @@ namespace Hotel.Controllers
 
             return View(hotelData);
         }
+
+        // ----for hoteldash
+        public ActionResult HotelDash()
+        {
+           
+            return View();
+        }
+
+        public ActionResult AddHotel1()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddHotel1([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper, PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking, PlayLand")] HotelData Hotelobj)
+        {
+            try
+            {
+
+
+
+                if (ModelState.IsValid)
+                {
+                    db.HotelDatas.Add(Hotelobj);
+                    db.SaveChanges();
+                    HotelStatic.Hotelid = Hotelobj.HotelID;
+                    return RedirectToAction("HotelDash");
+                }
+            }
+
+            catch (DataException)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+
+            return View(Hotelobj);
+        }
+
+        public ActionResult EditHotel1()
+        {
+            int id = HotelStatic.Hotelid;
+            HotelData hotelData = db.HotelDatas.Find(id);
+            if (hotelData == null)
+            {
+                return HttpNotFound();
+            }
+            return View(hotelData);
+            
+        }
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditHotel1([Bind(Include = "HotelID,HotelName,Ratings,Category,FreeWifi,PriceRangeUpper,PriceRangeLower,RoomAvailable,SwimmingPool,CarPark,FreeBreakfast,PrivateParking,PlayLand")] HotelData hotelData)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(hotelData).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("HotelDash");
+            }
+            return View(hotelData);
+        }
+
+
+
+        //----hoteldash
 
         // GET: HotelDatas/Edit/5
         public ActionResult EditHotel(int? id)
