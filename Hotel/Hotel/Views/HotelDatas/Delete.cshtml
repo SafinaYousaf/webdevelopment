@@ -3,7 +3,7 @@
 @{
     /**/
 
-    ViewBag.Title = "AddHotel";
+    ViewBag.Title = "Delete";
 }
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Add Hotel
+        Delete Hotel
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -27,215 +27,236 @@
     <link href="~/assets/demo/demo.css" rel="stylesheet" />
 </head>
 <body onload="form.reset();">
-    
-        <div class="wrapper ">
-            <div class="sidebar" data-color="orange">
-                <!--
-                    Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-                -->
-                <div class="logo">
 
-                    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                        TravOre
-                    </a>
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+            -->
+            <div class="logo">
+
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                    TravOre
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a href="@Url.Action("AdminDash", "HotelDatas")">
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("AddHotel", "HotelDatas")">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>Add Hotel</p>
+                        </a>
+                    </li>
+
+                   
+
+                    <li>
+                        <a href="~/about.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <p>Log Off</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent  bg-primary  navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="#pablo">TravOre</a>
                 </div>
-                <div class="sidebar-wrapper">
-                    <ul class="nav">
-                        <li>
-                            <a href="@Url.Action("AdminDash", "Generals")">
-                                <i class="now-ui-icons design_app"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
 
-                        <li class="active">
-                            <a href="~/AddHotel.html">
-                                <i class="now-ui-icons location_map-big"></i>
-                                <p>Add Hotel</p>
-                            </a>
-                        </li>
+            </div>
+        </nav>
+        <!-- End Navbar -->
 
-                        <li>
-                            <a href="@Url.Action("Delete", "Generals")">
-                                <i class="now-ui-icons users_single-02"></i>
-                                <p>Delete Person</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="~/about.html">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <p>Log Off</p>
-                            </a>
-                        </li>
 
-                    </ul>
+    </div>
+    <div class="main-panel">
+
+        <div class="panel-header panel-header-sm">
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="title">Delete Hotel</h5>
+                        </div>
+                        <div class="card-body">
+
+
+
+                            <h6>Are you sure you want to delete this?</h6>
+                            <div>
+                                <h4>Hotel Data</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.HotelName)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.HotelName)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Ratings)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Ratings)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Category)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Category)
+                                    </dd>
+
+
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.PriceRangeUpper)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.PriceRangeUpper)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.PriceRangeLower)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.PriceRangeLower)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.RoomAvailable)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.RoomAvailable)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FreeWifi)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FreeWifi)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.SwimmingPool)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.SwimmingPool)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.CarPark)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.CarPark)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FreeBreakfast)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FreeBreakfast)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.PrivateParking)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.PrivateParking)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.PlayLand)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.PlayLand)
+                                    </dd>
+
+                                </dl>
+
+                                
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="form-actions no-color">
+                                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                                            @Html.ActionLink("Back to List", "AdminDash")
+                                        </div>
+                                    }
+
+
+                            </div>
+
+
+
+
+
+
+
+                           
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg fixed-top navbar-transparent  bg-primary  navbar-absolute">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="#pablo">TravOre</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                    </button>
-
-                </div>
-            </nav>
-            <!-- End Navbar -->
-
-
         </div>
-        <div class="main-panel">
-            <div class="card">
-
-                <h3>Are you sure you want to delete this?</h3>
-                <div>
-                    <h4>HotelData</h4>
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.HotelName)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.HotelName)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Ratings)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Ratings)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Category)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Category)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.FreeWifi)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.FreeWifi)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PriceRangeUpper)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PriceRangeUpper)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PriceRangeLower)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PriceRangeLower)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.RoomAvailable)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.RoomAvailable)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.SwimmingPool)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.SwimmingPool)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CarPark)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CarPark)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.FreeBreakfast)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.FreeBreakfast)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PrivateParking)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PrivateParking)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PlayLand)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PlayLand)
-                        </dd>
-
-                    </dl>
-
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-default" /> |
-                            @Html.ActionLink("Back to List", "Index")
-                        </div>
-                    
-
-
-
-            }
-                    <!--   Core JS Files   -->
-                    <!--   Core JS Files   -->
-                    <script>
-        $("#cancel").click(function () {
-            $('#form_add')[0].reset();
-            $("#insert").text("");
-        });
-                    </script>
-                    <script src="~/assets/js/core/jquery.min.js"></script>
-                    <script src="~/assets/js/core/popper.min.js"></script>
-                    <script src="~/assets/js/core/bootstrap.min.js"></script>
-                    <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-                    <!--  Google Maps Plugin    -->
-                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-                    <!-- Chart JS -->
-                    <script src="~/assets/js/plugins/chartjs.min.js"></script>
-                    <!--  Notifications Plugin    -->
-                    <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
-                    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-                    <script src="~/assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
-                    <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-                    <script src="~/assets/demo/demo.js"></script>
-            </body>
+    </div>
+ 
+    <!--   Core JS Files   -->
+    <!--   Core JS Files   -->
+    
+    <script src="~/assets/js/core/jquery.min.js"></script>
+    <script src="~/assets/js/core/popper.min.js"></script>
+    <script src="~/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="~/assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
+    <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/assets/demo/demo.js"></script>
+</body>
         </html>
