@@ -13,6 +13,7 @@ using Hotel.Models;
 
 namespace Hotel.Controllers
 {
+    
     public class GeneralsController : Controller
     {
         private HotelEntities db = new HotelEntities();
@@ -54,10 +55,7 @@ namespace Hotel.Controllers
             return View();
         }
 
-        public ActionResult HotelDash()
-        {
-            return View();
-        }
+        
 
         
 
@@ -82,7 +80,10 @@ namespace Hotel.Controllers
                     if(general.Type == "Admin")
                         return RedirectToAction("AdminDash", "HotelDatas");
                     if (general.Type == "HotelManager")
-                        return RedirectToAction("HotelDash");
+                    {
+                        // first add hotel by hotel manger then hotelmanger will able to see dashboard
+                        return RedirectToAction("AddHotel1", "HotelDatas");
+                    }
                     if (general.Type == "User")
                         return RedirectToAction("Dashboard");
                 }
@@ -186,7 +187,11 @@ namespace Hotel.Controllers
                         if (user.Type.Substring(0, 5) == "Admin")
                             return RedirectToAction("AdminDash", "HotelDatas");
                         if (user.Type.Substring(0, 12) == "HotelManager")
-                            return RedirectToAction("HotelDash");
+                        {
+
+                            // first add hotel by hotel manger then hotelmanger will able to see dashboard
+                            return RedirectToAction("AddHotel1", "HotelDatas");
+                        }
                         if (user.Type.Substring(0, 4) == "User")
                             return RedirectToAction("Dashboard");
                     }
