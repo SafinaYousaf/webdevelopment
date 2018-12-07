@@ -16,6 +16,11 @@ namespace Hotel
 
     public partial class General
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public General()
+        {
+            this.UserDatas = new HashSet<UserData>();
+        }
 
         public int ID { get; set; }
 
@@ -39,8 +44,9 @@ namespace Hotel
 
         [Required(ErrorMessage = "Please enter type")]
         public string Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserData> UserDatas { get; set; }
     }
-
     public enum listType
     {
         User,
