@@ -165,14 +165,17 @@ namespace Hotel.Controllers
         {
             using (HotelEntities db = new HotelEntities())
             {
+                //fetche the data of user on the basis of inserted email
                 General user = db.Generals.FirstOrDefault(u => u.Email == (entity.Email));
+                //if entered email is not bound to any user then object will be null
                 if (user == null)
                 {
                     TempData["ErrorMSG"] = "object not found";
                     return View(entity);
 
                 }
-                
+                //if we are here then it mean we sucsessfuly retrived the data
+                //now we compare password
                 int a = entity.Password.Count();
                 if (user.Password.Substring(0, a) != entity.Password)
                 {
