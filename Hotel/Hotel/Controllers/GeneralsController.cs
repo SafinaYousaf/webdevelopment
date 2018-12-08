@@ -34,6 +34,44 @@ namespace Hotel.Controllers
             return View();
         }
 
+        //feedback
+        public ActionResult feedback()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult feedback([Bind(Include = "UserName,HotelName,Feedback,Id")] FeedBack obj)
+        {
+
+            try
+            {
+
+                obj.UserName = HotelStatic.username;
+
+
+                if (ModelState.IsValid)
+                {
+                    db.FeedBacks.Add(obj);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Dashboard");
+                }
+            }
+
+            catch (DataException)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+
+            }
+            return View(obj);
+
+
+        }
+
+
         // GET: Generals/Details/5
         public ActionResult Details(string id)
         {
@@ -89,7 +127,10 @@ namespace Hotel.Controllers
                         return RedirectToAction("AddHotel1", "HotelDatas");
                     }
                     if (general.Type == "User")
+                    {
+                        HotelStatic.username = general.Name;
                         return RedirectToAction("Dashboard");
+                    }
                 }
             }
 
@@ -200,7 +241,10 @@ namespace Hotel.Controllers
                             return RedirectToAction("AddHotel1", "HotelDatas");
                         }
                         if (user.Type.Substring(0, 4) == "User")
+                        {
+                            HotelStatic.username = user.Name;
                             return RedirectToAction("Dashboard");
+                        }
                     }
                     return View();
                 }

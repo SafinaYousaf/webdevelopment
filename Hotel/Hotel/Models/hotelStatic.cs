@@ -9,5 +9,6 @@ namespace Hotel.Models
     {
         public static int Hotelid { get; set; }
         public static string Hotelname { get; set; }
+        public static string username { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Hotel
     {
         public string UserName { get; set; }
         public string HotelName { get; set; }
-        public string Feedback1 { get; set; }
+        public string Feedback { get; set; }
         public int Id { get; set; }
     }
 }
