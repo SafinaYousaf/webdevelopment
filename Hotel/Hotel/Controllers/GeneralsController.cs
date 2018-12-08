@@ -68,15 +68,19 @@ namespace Hotel.Controllers
         {
             try
             {
-
+                //check if email already exist
 
                 General user = db.Generals.FirstOrDefault(u => u.Email == (general.Email));
+                //user will not be null if current entered email is presenyt in database
                 if (user != null)
                     ModelState.AddModelError("Email", "This Email was already taken");
+                //sucessfull signup procedure
                 if (ModelState.IsValid && user == null)
                 {
                     db.Generals.Add(general);
                     db.SaveChanges();
+                    //after saving data in database
+                    //we check for type of user and direct it to respective database
                     if(general.Type == "Admin")
                         return RedirectToAction("AdminDash", "HotelDatas");
                     if (general.Type == "HotelManager")
