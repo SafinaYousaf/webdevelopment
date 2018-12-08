@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,49 +33,48 @@
         </a>
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-        
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="./feedback.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Feedback</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a href="./favourites.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Favourites</p>
-            </a>
-          </li>
+          <ul class="nav">
+              <li class="active ">
+                  <a href="@Url.Action("Dashboard", "Generals")">
+                      <i class="now-ui-icons design_app"></i>
+                      <p>Dashboard</p>
+                  </a>
+              </li>
 
-           <li>
-            <a href="./about.html">
-              <i class="fas fa-sign-out-alt"></i>
-              <p>Log Off</p>
-            </a>
-          </li>
-          
-        </ul>
+              <li>
+                  <a href="@Url.Action("map", "Generals")">
+                      <i class="now-ui-icons location_map-big"></i>
+                      <p>Maps</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="@Url.Action("feedback", "Generals")">
+                      <i class="now-ui-icons ui-1_bell-53"></i>
+                      <p>Feedback</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="@Url.Action("user", "Generals")">
+                      <i class="now-ui-icons users_single-02"></i>
+                      <p>User Profile</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="@Url.Action("favourites", "Generals")">
+                      <i class="now-ui-icons design_bullet-list-67"></i>
+                      <p>Favourites</p>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="@Url.Action("Index", "Home")">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <p>Log Out</p>
+                  </a>
+              </li>
+
+          </ul>
       </div>
-    </div>
   </div>
 
          <!-- Navbar -->
