@@ -147,6 +147,10 @@ namespace Hotel.Controllers
 
                 obj.ID = HotelStatic.Id;
 
+                UserData user = db.UserDatas.FirstOrDefault(u => u.ID == (obj.ID));
+                //user will not be null if current entered id is present in database
+                if (user != null)
+                    ModelState.AddModelError("ID", "You already entered your data");
 
                 if (ModelState.IsValid)
                 {
