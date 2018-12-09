@@ -232,7 +232,7 @@ namespace Hotel.Controllers
                     if (general.Type == "User")
                     {
                         HotelStatic.username = general.Name;
-                        HotelStatic.Id = user.ID;
+                        HotelStatic.Id = general.ID;
                         return RedirectToAction("Dashboard");
                     }
                 }
